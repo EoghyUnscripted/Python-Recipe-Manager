@@ -14,10 +14,11 @@ class Ingredients:
         return self.name
 
     def printIngredient(self):  # Print ingredient to console
-
-        return (f'{self.amount} {self.measurement} '
-                f'{self.name} '
-                f'{self.comment}')
+        p_ingredient = str(self.amount) + ' ' \
+            + str(self.measurement) + ' ' \
+            + self.name + ' ' \
+            + self.comment
+        return p_ingredient
 
     def newIngredient(self):  # Add new ingredient to list
 
@@ -33,18 +34,15 @@ class Ingredients:
                 self.measurement = input('What is the measurement (i.e. cup, '
                                          'oz)?: \n')  # Get measurement type
 
-                # Get comment or special instruction
-                self.comment = input('Comments (i.e. minced, chopped)?: \n')
+                self.comment = input('Comments (i.e. minced, chopped)?: \n') # Get comment or special instruction
 
-                # Get ingredient calories
                 self.calories = (float(input('How many calories are in '
-                                             'this ingredient?: \n')))
+                                             'this ingredient?: \n'))) # Get ingredient calories
 
             except Exception:
 
-                # If input types are not integer
                 print('Please input numbers for amount and calories, '
-                      'Restarting...\n')
+                      'Restarting...\n') # If input types are not integer
 
             finally:
 

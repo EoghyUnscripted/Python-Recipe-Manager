@@ -1,6 +1,5 @@
 from Classes import ingredients, instructions
 
-
 class Recipe:
 
     def __init__(self, name, servings):  # Initialize new recipe
@@ -19,8 +18,7 @@ class Recipe:
 
     def getIngredientList(self):  # Get ingredients list
 
-        # Loop through ingredients list
-        for row in range(len(self.ingredientList)):
+        for row in range(len(self.ingredientList)): # Loop through ingredients list
 
             print(self.ingredientList[row])  # Prints ingredients to console
 
@@ -40,24 +38,22 @@ class Recipe:
 
         cals = 0.0  # Set counter
 
-        # Iterate through ingredients list
-        for row in range(len(self.ingredientList)):
+        for row in range(len(self.ingredientList)): # Iterate through ingredients list
 
-            # Get ingredient calories and sums total
-            cals += float(self.ingredientList[row].getIngredientCalories())
+            cals += float(self.ingredientList[row].getIngredientCalories()) # Get ingredient calories and sums total
 
         self.setTotalCals(cals)  # Set total recipe calories
 
     def calcSingleCalories(self):  # Calculate single serving calories
 
-        # Single serving calories is total recipe calories divided by servings
-        single = (self.getTotalCals() / self.servings)
+        
+        single = (self.getTotalCals() / self.servings) # Single serving calories is total recipe calories divided by servings
 
-        self.setSingleCals(single)
+        self.setSingleCals(single) # Set single serving calories count
 
     def printRecipe(self):  # Print recipe to console
 
-        i = 1
+        i = 1 # Set counter variable
 
         print(50 * '-' + '\n',
               20 * ' ' + self.getRecipeName(), '\n',
@@ -67,23 +63,21 @@ class Recipe:
               'Recipe Calories: ', self.getTotalCals(), '\n',
               'Serving Calories: ', self.getSingleCals(), '\n',
               '\n',
-              'Ingredients: \n')
+              'Ingredients: \n') # Print Recipe
+        
+        for row in range(len(self.ingredientList)): # Iterate through ingredients list to print each row to console
 
-        # Iterate through ingredients list to print each row to console
-        for row in range(len(self.ingredientList)):
-
-            print(' ', self.ingredientList[row].printIngredient())
+            print(' ', self.ingredientList[row].printIngredient()) # Print all ingredient rows in list
 
         print('\n',
-              'Instructions: \n')
+              'Instructions: \n')  # Print Instructions
 
-        # Iterate through instructions list to print each row to console
-        for row in range(len(self.instructions)):
+        for row in range(len(self.instructions)): # Iterate through instructions list to print each row to console
 
-            print('  {}: '.format(i), self.instructions[row].printSteps())
+            print('  {}: '.format(i), self.instructions[row].printSteps()) # Print all instruction rows in list
             i += 1
 
-        print('\n')
+        print('\n') # Blank Line
 
     def addIngredient(self):  # Add ingredients to recipe
 
@@ -94,11 +88,9 @@ class Recipe:
             nextIng = ingredients.Ingredients()  # Create new ingredient object
             nextIng.newIngredient()  # Call function to set ingredient values
 
-            # Append new ingredient to recipe ingredients list
-            self.ingredientList.append(nextIng)
+            self.ingredientList.append(nextIng) # Append new ingredient to recipe ingredients list
 
-            # Ask user if they need to add another ingredient to loop
-            add = input('Do you need another ingredient (Y/N)?: ')
+            add = input('Do you need another ingredient (Y/N)?: ') # Ask user if they need to add another ingredient to loop
 
             if add.lower() == 'y':
                 addMore = True  # Loop again
@@ -121,15 +113,12 @@ class Recipe:
 
         while addStep is True:  # Repeat until false
 
-            # Create new instruction object
-            nextStep = instructions.Instructions()
-            nextStep.addStep()  # Call function to set instructions
+            nextStep = instructions.Instructions() # Create new instruction object
+            nextStep.addStep() # Call function to set instructions
 
-            # Append new instructions to recipe instructions list
-            self.instructions.append(nextStep)
+            self.instructions.append(nextStep) # Append new instructions to recipe instructions list
 
-            # Ask user if they need to add another step to loop
-            add = input('Do you need to add another step (Y/N)?: ')
+            add = input('Do you need to add another step (Y/N)?: ') # Ask user if they need to add another step to loop
 
             if add.lower() == 'y':
                 addStep = True  # Loop again

@@ -1,6 +1,9 @@
 from Classes import recipeBox
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e726945... Initial Commit
 def menu():
 
     repeat = True  # Set boolean for loop
@@ -8,7 +11,11 @@ def menu():
 
     while repeat is True:  # Return to menu after methods until exit
 
+<<<<<<< HEAD
         # Print main menu
+=======
+        # Print user menu
+>>>>>>> e726945... Initial Commit
         print(50 * '-' + '\n',
               10 * ' ' + 'Recipe Collection Manager' + 10 * ' ' + '\n' +
               50 * '-' + '\n',
@@ -23,15 +30,13 @@ def menu():
 
         while True:
             try:
-                # Get menu selection as integer
-                selection = int(input('Choose a menu #: '))
-                print()
+                selection = int(input('Choose a menu Option #: ')) # Get menu selection as integer
+                print() # Print menu
                 break
 
             except Exception:
-                # If input is not an integer
                 print('ERROR:\n',
-                      'Please enter a numerical option. \n')
+                      'Please enter a numerical option. \n') # If input is not an integer
 
         if selection == 1:  # Add a new recipe
 
@@ -39,31 +44,36 @@ def menu():
 
         elif selection == 2:
 
-            myBox.printRecipeList()  # Print Recipes in box
+            if myBox.printRecipeList() is False: # Checks if there are no recipes in list
+                print('Please add a recipe, to use this option. \n') # Prompt user to add recipe first
+                pass # Back to Menu
 
         elif selection == 3:
 
-            myBox.printRecipeList()  # Print Recipes in box
+            if myBox.printRecipeList() is False: # Checks if there are no recipes in list
+                print('Please add a recipe, to use this option. \n') # Prompt user to add recipe first
+                pass # Back to Menu
+            
+            else:
 
-            # Choose a recipe from the displayed list
-            select = input('Please type the name of the recipe to view: \n')
-
-            myBox.getRecipe(select)  # Print selected recipe from box
+                select = input('Please type the name of the recipe to view: \n') # Choose a recipe from the displayed list
+                myBox.getRecipe(select)  # Print selected recipe from box
 
         elif selection == 4:
 
-            myBox.printRecipeList()  # Print Recipes in box
+            if myBox.printRecipeList() is False: # Checks if there are no recipes in list
+                print('Please add a recipe, to use this option. \n') # Prompt user to add recipe first
+                pass # Back to Menu
+            
+            else:
 
-            # Choose a recipe from the displayed list
-            delete = input('Please select a recipe to delete: \n')
-
-            myBox.deleteRecipe(delete)  # Delete selected recipe from box
+                delete = input('Please select a recipe to delete: \n') # Choose a recipe from the displayed list
+                myBox.deleteRecipe(delete)  # Delete selected recipe from box
 
         elif selection == 5:
 
             repeat = False  # Stop loop
             quit  # Exit program
-
 
 myBox = recipeBox.box()  # Create new Recipe Box object
 menu()  # Call main
