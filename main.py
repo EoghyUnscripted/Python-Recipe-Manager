@@ -1,9 +1,5 @@
 from Classes import recipeBox
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e726945... Initial Commit
 def menu():
 
     repeat = True  # Set boolean for loop
@@ -11,11 +7,7 @@ def menu():
 
     while repeat is True:  # Return to menu after methods until exit
 
-<<<<<<< HEAD
-        # Print main menu
-=======
         # Print user menu
->>>>>>> e726945... Initial Commit
         print(50 * '-' + '\n',
               10 * ' ' + 'Recipe Collection Manager' + 10 * ' ' + '\n' +
               50 * '-' + '\n',
