@@ -1,37 +1,30 @@
 class Author:
     """Class object to store Author data for each recipe."""
     
-    def __init__(self, f_name="First", l_name="Last"):
-        self.f_name = f_name    # First name
-        self.l_name = l_name    # Last name
-        self.full_name = f"{self.f_name} {self.l_name}" # Full name
+    def __init__(self, first="First", last="Last"):
+        self.f_name = first
+        self.l_name = last
+        self.full_name = f"{self.f_name} {self.l_name}" # First Last
         
-    def get_f_name(self):
-        """Class method to get first name."""
+    def print_author(self):
+        """Method used to print object as string to console."""
         
-        return self.f_name  # Returns first name
-    
-    def set_f_name(self, name):
-        """Class method to set first name."""
+        print(self.full_name)
         
-        self.f_name = name  # Sets first name
+    def promt(self):
+        """Prompts user to input first and last name for author object, updates full name."""
         
-    def get_l_name(self):
-        """Class method to get last name."""
-        
-        return self.l_name  # Returns last name
-    
-    def set_l_name(self, name):
-        """Class method to set last name."""
-        
-        self.l_name = name  # Sets last name
-        
-    def get_full_name(self):
-        """Class method to get full name."""
-        
-        return self.full_name   # Returns full name
-    
-    def set_full_name(self, first, last):
-        """Class method to set full name."""
-        
-        self.full_name = f"{first} {last}"  # Sets full name
+        while True:
+            
+            self.f_name = input("Author first name: ")
+            self.l_name = input("Author last name: ")
+            
+            # Verify name with user
+            looks_good = input(f"The author name is: {self.f_name.upper()} {self.l_name.upper()}\n"
+                              +f"Is this correct? (Y/N): ")
+            
+            if looks_good.lower() == "y":
+                
+                # Update full name attribute
+                self.full_name = f"{self.f_name} {self.l_name}"
+                break
