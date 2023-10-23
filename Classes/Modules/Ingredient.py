@@ -1,59 +1,44 @@
 class Ingredient:
     """Class object to store Ingredient data for recipes."""
 
-    def __init__(self):
-        self.name = "Blank" # Set ingredient name
-        self.amount = 0.0   # Set ingredient amount
-        self.measurement = "cup, oz, etc"   # Set ingredient measurement
-        self.calories = 0.0     # Set ingredient calories
-        self.comments = "Chopped, Diced, etc"   # Set ingredient comments
+    def __init__(self, amount=1, measurement="cup", name="Sugar", 
+                 presentation="Granulated", calories=150.00):
+        
+        ### User-populated ###
+        self.amount = amount
+        self.measurement = measurement
+        self.name = name
+        self.presentation = presentation
+        self.calories = calories
+        
+        ### Class-populated ###
+        self._total_ingredient_cals = self.amount * self.calories
+        
+    def print_ingredient(self):
+        """Method used to print object as string to console."""
+        
+        print(str(f"{self.amount} {self.measurement} {self.presentation} "
+                + f"{self.name} -- {int(self.amount * self.calories)} calories").replace("  ", " ").replace(".0", ""))
 
-    def get_name(self):
-        """Method to get ingredient name."""
+    def prompt(self):
+        """Prompts user to input ingredient details."""
         
-        return self.name    # Return ingredient name
-    
-    def set_name(self, name):
-        """Method to set ingredient name."""
+        while True:
         
-        self.name = name    # Set ingredient name
-        
-    def get_amount(self):
-        """Method to get ingredient amount for recipe."""
-        
-        return self.amount    # Return ingredient amount
-    
-    def set_amount(self, amount):
-        """Method to set ingredient amount for recipe."""
-        
-        self.amount = amount    # Set ingredient amount
-        
-    def get_measurement(self):
-        """Method to get ingredient measurement."""
-        
-        return self.measurement    # Return ingredient measurement
-    
-    def set_measurement(self, measurement):
-        """Method to set ingredient measurement."""
-        
-        self.measurement = measurement    # Set ingredient measurement
-        
-    def get_calories(self):
-        """Method to get ingredient calories."""
-        
-        return self.calories    # Return ingredient calories
-    
-    def set_calories(self, calories):
-        """Method to set ingredient calories."""
-        
-        self.calories = calories    # Set ingredient calories
-        
-    def get_comments(self):
-        """Method to get ingredient comments."""
-        
-        return self.comments    # Return ingredient comments
-    
-    def set_comments(self, comments):
-        """Method to set ingredient comments."""
-        
-        self.comments = comments    # Set ingredient comments
+            print("Please enter the ingredient details.")
+            
+            self.amount = float(input("Amount or quantity: "))
+            self.measurement = input("Measurement (i.e cups, oz, tsp): ")
+            self.name = input("Ingredient name: ")
+            self.presentation = input("Presentation (i.e. chopped, diced...)(optional): ")
+            self.calories = int(input("Calories per measurement: "))
+            
+            # Verify ingredient details with user
+            looks_good = input(str(f"{str(self.amount).replace('.0', '')} {self.measurement} {self.presentation} {self.name}\n"
+                        + f"{int(self.amount * self.calories)} calories\nIs this correct? (Y/N): ").replace("  ", " "))
+
+            if looks_good.lower() == "y":
+                
+                # Update total calories
+                self._total_ingredient_cals = self.amount * self.calories
+                break
