@@ -25,8 +25,8 @@ class Ingredient:
         
         while True:
         
-            print("Please enter the ingredient details.")
-            
+            print("\nIngredient Details")
+            print() # Blank line
             self.amount = float(input("Amount or quantity: "))
             self.measurement = input("Measurement (i.e cups, oz, tsp): ")
             self.name = input("Ingredient name: ")
@@ -34,8 +34,8 @@ class Ingredient:
             self.calories = int(input("Calories per measurement: "))
             
             # Verify ingredient details with user
-            looks_good = input(str(f"{str(self.amount).replace('.0', '')} {self.measurement} {self.presentation} {self.name}\n"
-                        + f"{int(self.amount * self.calories)} calories\nIs this correct? (Y/N): ").replace("  ", " "))
+            looks_good = input(str(f"\n{str(self.amount).replace('.0', '')} {self.measurement} {self.presentation} {self.name}\n"
+                        + f"{int(self.amount * self.calories)} calories\n\nIs this correct? (Y/N): ").replace("  ", " "))
 
             if looks_good.lower() == "y":
                 
