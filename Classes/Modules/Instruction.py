@@ -14,10 +14,13 @@ class Instruction:
         
         while True:
             
-            self.instruction = input("What is the next step in the recipe?: ")
+            print(f"Instruction Details")
+            print() # Blank line
+            
+            self.instruction = input("\nWhat is the next step in the recipe?: ")
             
             # Verify instruction details with user
-            looks_good = input(f"You entered: {self.instruction}\nIs this correct? (Y/N): ")
+            looks_good = input(f"\nYou entered: {self.instruction}\nIs this correct? (Y/N): ")
 
             if looks_good.lower() == "y":
                 
