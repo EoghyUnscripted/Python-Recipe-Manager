@@ -14,7 +14,9 @@ class Diet:
         
         while True:
             
-            self.diet = input("What dietary warning would you like to add? (i.e. Gluten-free): ")
+            print(f"\nDietary Details")
+            print() # Blank line
+            self.diet = input("\nWhat dietary warning would you like to add? (i.e. Gluten-free): ")
             
             # Verify Dietary details with user
             looks_good = input(f"You entered: {self.diet}\nIs this correct? (Y/N): ")
