@@ -11,7 +11,7 @@
 [![MIT License][license-shield]][license-url]
 
   <p align="center">
-    Designed and built for the nostalgia, the "Penny Arcade" is a core Python application that lets users play solo games like Blackjack or Hangman in a terminal or console window.
+    The Recipe Manager is a core application using classes and user input to create cook books and store all the wonderful recipes you can come up with. This is a basic application that allows users to add, view, and delete recipes or cook books.
     <br />
     <a href="https://github.com/EoghyUnscripted/Python-Recipe-Manager"><strong>Explore the docs »</strong></a>
     <br />
