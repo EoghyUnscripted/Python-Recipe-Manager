@@ -1,10 +1,10 @@
-from Author import Author
-from Diet import Diet
-from Ingredient import Ingredient
-from Instruction import Instruction
+from Modules.Author import Author
+from Modules.Diet import Diet
+from Modules.Ingredient import Ingredient
+from Modules.Instruction import Instruction
 
 class Recipe:
-    """Class object to store recipe data."""
+    """Creates a Recipe object to store and manage recipe data."""
 
     def __init__(self, name="Sandwich", author="Author", prep=0.0, cook=0.0, servings=0,
                  description = "Description", ingredients=[], instructions=[], dietary=[]):
@@ -105,21 +105,24 @@ class Recipe:
         
         while True:
             
-            next_dietary = Diet()
-            next_dietary.prompt()
+            add_dietary = input(f"\nDo you need to add dietary warnings? (Y/N): ")
             
-            recipe_dietary.append(next_dietary)
-            
-            more_dietary = input("Are there more dietary warnings to add? (Y/N): ")
-
-            if more_dietary.lower() == "y":
-                
-                continue
+            if add_dietary.lower() != "y":
+                        
+                break
             
             else:
                 
-                self.dietary_list = recipe_dietary                 
-                break
+                next_dietary = Diet()
+                next_dietary.prompt()
+                recipe_dietary.append(next_dietary)
+                
+                more_dietary = input("\nAre there more dietary warnings to add? (Y/N): ")
+
+                if more_dietary.lower() != "y":
+                    
+                    self.dietary_list = recipe_dietary                 
+                    break
 
     def print_summary(self):
         """Method to print formatted recipe summary to console."""
