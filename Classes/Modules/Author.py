@@ -1,5 +1,5 @@
 class Author:
-    """Class object to store Author data for each recipe."""
+    """Class object to create Author object ."""
     
     def __init__(self, first="First", last="Last"):
         self.f_name = first
@@ -16,12 +16,13 @@ class Author:
         
         while True:
             
-            self.f_name = input("Author first name: ")
-            self.l_name = input("Author last name: ")
+            print(f"\nAuthor Details")
+            print() # Blank line
+            self.f_name = input("Enter author first name: ")
+            self.l_name = input("Enter author last name: ")
             
             # Verify name with user
-            looks_good = input(f"The author name is: {self.f_name.upper()} {self.l_name.upper()}\n"
-                              +f"Is this correct? (Y/N): ")
+            looks_good = input(f"\nIs {self.f_name} {self.l_name} correct? (Y/N): ")
             
             if looks_good.lower() == "y":
                 
